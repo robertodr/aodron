@@ -25,6 +25,12 @@ jobs:
             
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Get tarball from GitLab
+        env:
+          GITLAB_PAT: ${{ secrets.GITLAB_PAT }}
+        run: |
+          curl --location --header "PRIVATE-TOKEN: $GITLAB_PAT" "https://gitlab.com/api/v4/projects/24250941/jobs/artifacts/master/raw/build/aodron.tar.bz2?job=build" --output aodron.tar.bz2
 
       - name: Cache conda
         uses: actions/cache@v1
