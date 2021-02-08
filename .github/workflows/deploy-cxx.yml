@@ -1,6 +1,7 @@
 name: Deploy C++ packages
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - conda-recipes/*
