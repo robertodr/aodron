@@ -2,9 +2,10 @@ name: Deploy C++ packages
 
 on:
   workflow_dispatch:
-    sha256:
-      description: 'The SHA256 of the package'
-      required: true
+    inputs:
+      sha256:
+        description: 'The SHA256 of the package'
+        required: true
   push:
     paths:
       - conda-recipes/*
